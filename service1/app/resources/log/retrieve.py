@@ -9,5 +9,5 @@ class RetrieveLogResource(Resource):
     def get(self):
         logger.info("RetrieveLogResource GET request received")
         response = make_response("Log endpoint is working", 200)
-        response.headers['Content-Type'] = 'text/plain'
+        response.headers["Content-Type"] = "text/plain"
         return response

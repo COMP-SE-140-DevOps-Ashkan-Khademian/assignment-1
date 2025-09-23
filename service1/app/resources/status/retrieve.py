@@ -9,5 +9,5 @@ class RetrieveStatusResource(Resource):
     def get(self):
         logger.info("RetrieveStatusResource GET request received")
         response = make_response("Status endpoint is working", 200)
-        response.headers['Content-Type'] = 'text/plain'
+        response.headers["Content-Type"] = "text/plain"
         return response

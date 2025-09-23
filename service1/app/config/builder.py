@@ -8,6 +8,7 @@ from .configs import (
     TestingConfig,
 )
 
+
 class ConfigBuilder:
     __instance: Optional["Config"] = None
     __app: Optional["Flask"] = None
