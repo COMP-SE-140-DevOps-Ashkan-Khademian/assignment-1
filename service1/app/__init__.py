@@ -1,12 +1,12 @@
-import os
+from decouple import config
 
-from dotenv import load_dotenv
 from flask import Flask
 from flask_restful import Api
 
-load_dotenv()
+environment: str = config(
+    "FLASK_ENV", "development"
+)  # pyright: ignore[reportAssignmentType]
 
-environment = os.getenv("FLASK_ENV", "development")
 api = Api()
 
 
