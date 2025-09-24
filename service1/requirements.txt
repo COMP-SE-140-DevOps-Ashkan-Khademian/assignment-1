@@ -8,3 +8,4 @@ Flask-RESTful==0.3.10
 pydantic==2.11.9
 black==25.9.0
 python-decouple==3.8
+requests==2.32.5

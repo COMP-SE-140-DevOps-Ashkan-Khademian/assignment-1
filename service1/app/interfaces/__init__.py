@@ -1,0 +1,1 @@
+from .service2 import Service2Interface
