@@ -1,5 +1,6 @@
 from abc import ABC
 
+from decouple import config
 from flask import Flask
 
 
@@ -7,6 +8,9 @@ class Config(ABC):
     ENV: str
     DEBUG: bool
     TESTING: bool
+    SERVICE2_URL: str = config(
+        "SERVICE2_URL", "http://service2:3000"
+    )  # pyright: ignore[reportAssignmentType]
 
     def __init__(self, app: Flask):
         self.app = app
