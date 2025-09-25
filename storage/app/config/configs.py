@@ -8,12 +8,7 @@ class Config(ABC):
     ENV: str
     DEBUG: bool
     TESTING: bool
-    SERVICE2_URL: str = config(
-        "SERVICE2_URL", "http://service2:3000"
-    )  # pyright: ignore[reportAssignmentType]
-    STORAGE_URL: str = config(
-        "STORAGE_URL", "http://storage:5000"
-    )  # pyright: ignore[reportAssignmentType]
+    FILE_DB_PATH: str = config("FILE_DB_PATH")  # pyright: ignore[reportAssignmentType]
 
     def __init__(self, app: Flask):
         self.app = app

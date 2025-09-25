@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  service1:
+    build:
+      context: ./service1
+      dockerfile: Dockerfile
+    container_name: devops.service1
+    ports:
+      - "8199:5000"
+    restart: unless-stopped
+    command: ["sh", "/src/start.sh"]
+
+  service2:
+    build:
+      context: ./service2
+      dockerfile: Dockerfile
+    container_name: devops.service2
+    ports:
+      - "8198:3000"
+    restart: unless-stopped
+    command: ["sh", "/src/start.sh"]
+
+  storage:
+    build:
+      context: ./storage
+      dockerfile: Dockerfile
+    container_name: devops.storage
+    ports:
+      - "8197:5000"
+    restart: unless-stopped
+    volumes:
+      - storage_data:/src/data
+    command: ["sh", "/src/start.sh"]
+
+volumes:
+  storage_data:
