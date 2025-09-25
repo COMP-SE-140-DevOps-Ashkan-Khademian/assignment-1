@@ -1,9 +1,6 @@
-import logging
 from app.interfaces import Service2Interface, StorageInterface
 from app.services import StatusService
 from app.resources.utils import Resource
-
-logger = logging.getLogger(__name__)
 
 
 class RetrieveStatusResource(Resource):
@@ -14,7 +11,6 @@ class RetrieveStatusResource(Resource):
         self.storage = StorageInterface()
 
     def get(self):
-        logger.info("RetrieveStatusResource GET request received")
         my_status = self.status_service.get_status()
         self.storage.append_log(my_status)
         service2_status = self.service2.get_status()

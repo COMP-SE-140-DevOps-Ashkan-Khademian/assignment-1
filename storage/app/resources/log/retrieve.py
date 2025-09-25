@@ -1,9 +1,5 @@
-import logging
-
 from app.services import FileDBService
 from app.resources.utils import Resource
-
-logger = logging.getLogger(__name__)
 
 
 class RetrieveLogResource(Resource):

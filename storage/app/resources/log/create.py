@@ -1,10 +1,7 @@
-import logging
-from flask_restful import reqparse, fields
+from flask_restful import reqparse
 
 from app.services import FileDBService
 from app.resources.utils import Resource
-
-logger = logging.getLogger(__name__)
 
 
 class CreateLogResource(Resource):
