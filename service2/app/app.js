@@ -9,3 +9,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", statusRoutes);
 
 module.exports = app;
+
