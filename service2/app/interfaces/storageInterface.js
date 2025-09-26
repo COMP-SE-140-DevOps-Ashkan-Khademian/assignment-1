@@ -6,7 +6,7 @@ class StorageInterface {
   }
 
   async appendLog(logEntry) {
-    await axios.post(`${this.baseUrl}/log/`, logEntry, {
+    await axios.post(`${this.baseUrl}/log`, logEntry, {
       headers: { "Content-Type": "text/plain" },
     });
   }
