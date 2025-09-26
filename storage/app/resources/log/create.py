@@ -17,4 +17,4 @@ class CreateLogResource(Resource):
         args = self.log_parser.parse_args()
         log = args["log"]
         self.db_service.append_data(log)
-        return {"log": log, "message": "created"}, 201
+        return self.make_plain_text_response(log, 201)
