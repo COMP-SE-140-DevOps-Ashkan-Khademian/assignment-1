@@ -1,4 +1,5 @@
-__all__ = ["StatusService"]
+__all__ = ["StatusService", "SharedStorageService"]
 
 
 from .status import StatusService
+from .shared_storage import SharedStorageService
