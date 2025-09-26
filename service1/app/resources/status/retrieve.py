@@ -1,5 +1,5 @@
 from app.interfaces import Service2Interface, StorageInterface
-from app.services import StatusService
+from app.services import StatusService, SharedStorageService
 from app.resources.utils import Resource
 
 
@@ -9,10 +9,12 @@ class RetrieveStatusResource(Resource):
         self.service2 = Service2Interface()
         self.status_service = StatusService()
         self.storage = StorageInterface()
+        self.shared_storage = SharedStorageService()
 
     def get(self):
         my_status = self.status_service.get_status()
         self.storage.append_log(my_status)
+        self.shared_storage.append(my_status)
         service2_status = self.service2.get_status()
         response_text = f"{my_status}\n{service2_status}"
         return self.make_plain_text_response(response_text)

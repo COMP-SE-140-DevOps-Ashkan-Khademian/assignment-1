@@ -14,6 +14,9 @@ class Config(ABC):
     STORAGE_URL: str = config(
         "STORAGE_URL", "http://storage:5000"
     )  # pyright: ignore[reportAssignmentType]
+    SHARED_STORAGE_PATH: str = config(
+        "SHARED_STORAGE_PATH", "./vstorage"
+    )  # pyright: ignore[reportAssignmentType
 
     def __init__(self, app: Flask):
         self.app = app

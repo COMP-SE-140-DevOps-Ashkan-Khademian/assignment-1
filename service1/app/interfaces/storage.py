@@ -1,12 +1,12 @@
 import requests
 
-from flask import current_app
+from flask import current_app as app
 
 
 class StorageInterface:
 
     def __init__(self) -> None:
-        self.base_url = current_app.config["STORAGE_URL"]
+        self.base_url = app.config["STORAGE_URL"]
 
     def get_logs(self) -> str:
         response = requests.get(f"{self.base_url}/log/")
