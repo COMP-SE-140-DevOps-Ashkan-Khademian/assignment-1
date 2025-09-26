@@ -9,6 +9,8 @@ services:
     ports:
       - "8199:5000"
     restart: unless-stopped
+    volumes:
+      - ./vstorage:/src/vstorage
     command: ["sh", "/src/start.sh"]
 
   service2:
@@ -19,6 +21,8 @@ services:
     ports:
       - "8198:3000"
     restart: unless-stopped
+    volumes:
+      - ./vstorage:/src/vstorage
     command: ["sh", "/src/start.sh"]
 
   storage:
