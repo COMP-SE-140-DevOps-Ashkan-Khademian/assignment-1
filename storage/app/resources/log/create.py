@@ -1,4 +1,4 @@
-from flask_restful import reqparse
+from flask import request
 
 from app.services import FileDBService
 from app.resources.utils import Resource
@@ -8,13 +8,10 @@ class CreateLogResource(Resource):
     def __init__(self) -> None:
         super().__init__()
         self.db_service = FileDBService()
-        self.log_parser = reqparse.RequestParser()
-        self.log_parser.add_argument(
-            "log", type=str, required=True, help="Log message is required"
-        )
 
     def post(self):
-        args = self.log_parser.parse_args()
-        log = args["log"]
+        log = request.get_data(as_text=True) or ""
+        if not log.strip():
+            return self.make_plain_text_response("Log message is required", 400)
         self.db_service.append_data(log)
-        return {"log": log, "message": "created"}, 201
+        return self.make_plain_text_response(log, 201)

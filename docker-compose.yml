@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     container_name: devops.service2
     ports:
-      - "8198:3000"
+      - "3000"
     restart: unless-stopped
     volumes:
       - ./vstorage:/src/vstorage
@@ -31,7 +31,7 @@ services:
       dockerfile: Dockerfile
     container_name: devops.storage
     ports:
-      - "8197:5000"
+      - "5000"
     restart: unless-stopped
     volumes:
       - storage_data:/src/data

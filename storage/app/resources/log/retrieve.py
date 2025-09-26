@@ -12,4 +12,4 @@ class RetrieveLogResource(Resource):
             self.db_service.create_file()
 
         data = self.db_service.read_data()
-        return {"logs": data}, 200
+        return self.make_plain_text_response(data)
