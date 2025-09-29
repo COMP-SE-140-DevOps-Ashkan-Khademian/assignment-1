@@ -1,0 +1,13 @@
+docker container ls
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                                           NAMES
+9c58e0409d4a   assignment-1-storage    "sh /src/start.sh"       40 seconds ago   Up 39 seconds   0.0.0.0:32772->5000/tcp, [::]:32772->5000/tcp   devops.storage
+fa80fffcb24a   assignment-1-service2   "docker-entrypoint.s…"   40 seconds ago   Up 39 seconds   0.0.0.0:32771->3000/tcp, [::]:32771->3000/tcp   devops.service2
+32fa2fbb1af3   assignment-1-service1   "sh /src/start.sh"       40 seconds ago   Up 39 seconds   0.0.0.0:8199->5000/tcp, [::]:8199->5000/tcp     devops.service1
+
+
+docker network ls
+NETWORK ID     NAME                   DRIVER    SCOPE
+f5be99acf34c   assignment-1_default   bridge    local
+6931ca1d13b6   bridge                 bridge    local
+d5ae9a608d08   host                   host      local
+109a60f81d31   none                   null      local
