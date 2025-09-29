@@ -1,0 +1,51 @@
+1.The used LLM tool: 
+https://chat.openai.com/
+
+2. Motivation/reason to use LLM:
+While developing, there are a series of times where you need to search for how some syntax works, or how to do something in a specific framework. 
+You can use a search engine, and go into the stack-overflow answers one by one. 
+Since these syntactical questions are not the point of this devops assignment, I used the LLM tool to quickly get answers to these questions.
+There have been three types of usage of LLM in my assignment: 
+    A. Syntactical questions
+    B. Requirements understanding
+    C. Functionality explanation
+In all these cases I made sure that LLM does not have enough context about the problem to solve it on my behalf, or is prompted not to do so. 
+so the architecture and internal designs all remain genuine work of mine.
+
+3. How and why LLM helped:
+A. Syntactical questions
+I've had good experience over Python and Flask framework, but I had to use another programming language (JavaScript) and another framework (Node) in the assignment that I wasn't as familiar with.
+These are some of the questions I asked the LLM tool regarding Node JS application:
+    - how can I write a class in my node.js backend application and export it to use in my controller classes?
+    - I want to get the system's free disk in MB in my node backend service and use it in one of the endpoints. how it's done in js? without the need to install any new package.
+
+However, the internal architecture and design in each service, which is component-based with loosely coupled service classes for the internal functionalities and interface classes for connecting to other microservices, is something I designed and implemented myself based on my own experience in software engineering.
+Additionally, the external architecture and design of the microservices which is the solution to this assignment, is based on common patterns in microservice architecture that I have learned from various resources. 
+
+B. Requirements understanding
+I also used the LLM tool for finalizing my thoughts on some of the requirements.
+While sharing the requirements in the pdf with it, I prompt GPT like this:
+    - I'm gonna share with you the content of the first exercise, but you MUST NOT solve it for me. but be my help for the questions I have around the assignment.
+
+I usually prompt it so that GPT does not think on my behalf and just be a help for my questions around the assignment.
+then I asked this question for example:
+    - should I choose between having vstorage or having the storage container? are these two alternatives? or both must be implemented?
+
+C. Functionality explanation
+At last, since the assignment included many configurations in Docker, docker-compose, uWSGI, etc., I had to use LLM to understand some of the functionalities in the configuration commands.
+For instance, I would ask: 
+    - What's the use of `master` and `processes` in uWSGI's app.ini?
+    - What's the difference between `CMD` and `RUN` in a Dockerfile? can I leave my Dockerfile without a `CMD` and just mention the `CMD` in my docker-compose?
+    - I have `volumes: ./vstorage:/src/vstorage` in my docker-compose and `vstorage` must remain a file. This file doesn't exist in my project in the first place. docker-compose creates a folder instead of a text file. is there a way to change this behavior?
+
+4. What kind of mistakes LLM did:
+In my experience LLMs lack enough knowledge and context when it comes to configurations. 
+For example, once I was figuring out why I'm not seeing any logs in my Flask application, GPT suggested I should use `log-2xx = true`. 
+However, this is one command not existing in uWSGI. With going into the official docs, I found out I have to use `disable-logging = false` instead.
+So, the responses from AI is not directly the answer to the problem at hand.
+
+5. What were things that LLM was not able to provide:
+I believe LLM is not able to provide a resilient and standard design and high-level architecture for the projects.
+For example, in this project I'd rather have a consistent design over both my Python and JavaScript services. 
+But I believe AI just would've provided answers that are just common on the internet for those languages.
+This was the exact reason I didn't let it design the internal and external architecture of my services.
